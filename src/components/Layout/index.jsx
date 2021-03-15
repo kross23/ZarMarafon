@@ -1,6 +1,7 @@
 
 import l from './index.module.css';
-const Layout = ({color, title, descr, bg, }) => {
+const Layout = ({color, title, descr, bg, ...children}) => {
+    
 
     const styles = {
         background: `url(${bg})`,
@@ -15,8 +16,12 @@ return(
                 <h3>{title}</h3>
                 <span className={l.separator}></span>
             </div>
-            <div className={l.desc, l.full}>
-                <p>{descr}</p>
+            <div className={`${l.desc} ${l.full}`}>
+              
+                {
+                   children.children 
+                }
+
             </div>
         </article>
     </div>

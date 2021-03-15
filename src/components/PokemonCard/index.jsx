@@ -1,31 +1,44 @@
-const PokemonCard = () => {
+import {useState} from 'react';
+import P from './index.module.css';
+const PokemonCard = ({cardBackSide, type,name, id,img, top, right, bottom, left }) => {
+    const [rotate, setrotate] = useState('');
+
+    const heandlerCard = () => {
+        if(rotate === 'active'){
+            setrotate('');
+        }else{
+            setrotate('active');
+        }
+      }
+
+
     return(
-        <div className="root">
-      <div className="pokemonCard">
-        <div className="cardFront">
-            <div className="wrap front">
-                <div className="pokemon <-- Type Pokemon -->">
-                    <div className="values">
-                        <div className="count top">{"<-- Count Value -->"}</div>
-                        <div className="count right">{"<-- Count Value -->"}</div>
-                        <div className="count bottom">{"<-- Count Value -->"}</div>
-                        <div className="count left">{"<-- Count Value -->"}</div>
+        <div className={P.root}>
+      <div className={`${P.pokemonCard}${rotate}`} onClick={heandlerCard}>
+        <div className={P.cardFront}>
+            <div className={P.wrap ,P.front}>
+                <div className={P.pokemon }> 
+                    <div className="P.values">
+                        <div className={`${P.count }${P.top}`}>{top}</div>
+                        <div className={`${P.count} ${P.right}`}>{right}</div>
+                        <div className={`${P.count} ${P.bottom}`}>{bottom}</div>
+                        <div className={`${P.count} ${P.left}`}>{left}</div>
                     </div>
-                    <div className="imgContainer">
-                        <img src="<-- Pokemon Picture -->" alt="<-- Name Pokemon -->" />
+                    <div className={P.imgContainer}>
+                        <img src={img} alt={name} />
                     </div>
-                    <div className="info">
-                        <span className="number">#{"<-- ID Pokemon -->"}</span>
-                        <h3 className="name">{"<-- Name Pokemon -->"}</h3>
-                        <small className="type">Type: <span>{"<-- Type Pokemon -->"}</span></small>
+                    <div className={P.info}>
+                        <span className={P.number}>#{id}</span>
+                        <h3 className={P.name}>{name}</h3>
+                        <small className={P.type}>Type: <span>{type}</span></small>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div className="cardBack">
-            <div className="wrap back">
-                <img src="<-- Card Backed Picture -->" alt="Сard Backed" />
+        <div className={P.cardBack}>
+            <div className={`${P.wrap} ${P.back}`}>
+                <img src={cardBackSide} alt="Сard Backed" />
             </div>
         </div>
 
@@ -33,3 +46,4 @@ const PokemonCard = () => {
 </div>
     )
 }
+export default PokemonCard;
