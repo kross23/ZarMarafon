@@ -9,6 +9,7 @@ import Footer from '../../Footer/index';
 import PokemonCard from '../../PokemonCard/index';
 import data from '../../json/data.json';
 import style from './style.module.css';
+import MenuHeader from '../MenuHeader';
 //urlBg
 const color = `#e2e2e2`;
 
@@ -24,7 +25,9 @@ const handleClick = (page) => {
   return (
 
   <div className={style.App}>
+    <MenuHeader handleChangePage={handleChangePage} />
     <Header title={title} descr={descr} handleClick={handleClick}/>
+    
     <Layout title={"первый шаблон"}  bg={bg2}>
     In the game two players face off against one another, one side playing as "blue", the other as "red" on a 3x3 grid.
 Each player has five cards in a hand and the aim is to capture the opponent's cards by turning them into the player's own color of red or blue.
@@ -53,9 +56,6 @@ To win, a majority of the total ten cards played (including the one card that is
   }
   </div>
   </Layout>
- 
- 
-  
   <Layout title={"третий шаблон"}  bg={bg3} >
     <img src={logo} alt="logo" width="189" height="189"/>
   </Layout>

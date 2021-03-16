@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import names_cn from 'classnames'
+import names_cn from 'classnames';
 import P from './index.module.css';
 const PokemonCard = ({cardBackSide, type,name, id,img, top, right, bottom, left }) => {
     const [rotate, setrotate] = useState(false);
@@ -7,13 +7,13 @@ const PokemonCard = ({cardBackSide, type,name, id,img, top, right, bottom, left 
     const heandlerCard = () => {
         setrotate(prev => !prev);
     }
-
+//{**// <div className={`${P.wrap } ${P.front}`}> //*}
 
     return(
         <div className={P.root}>
-      <div className={rotate ? names_cn(P.pokemonCard,{[P.active]:rotate}) : `${P.pokemonCard}` } onClick={heandlerCard}>
+      <div className={names_cn(P.pokemonCard,{[P.active]:rotate})} onClick={heandlerCard}>
         <div className={`${P.cardFront}`} >
-            <div className={`${P.wrap } ${P.front}`}>
+            <div className={names_cn(`${P.wrap}`, `${P.front}`)}> 
                 <div className={`${P.pokemon}`}> 
                     <div className={`${P.values}`}>
                         <div className={`${P.count } ${P.top}`} > {top} </div>

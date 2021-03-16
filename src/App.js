@@ -5,8 +5,9 @@ const App = () => {
   const  [page, setPage] = useState('app');
 
 const handleChangePage = (page) => {
-  console.log('app');
-  setPage(page)
+  console.log('page: ', page);
+  setPage(page);
+  
 }
 
 

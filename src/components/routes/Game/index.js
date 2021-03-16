@@ -1,6 +1,6 @@
 const GamePage= ({handleChangePage}) => {
     const handleGame = () => {
-        console.log('gamePage');
+        
         handleChangePage && handleChangePage('app');
     } 
     return(
