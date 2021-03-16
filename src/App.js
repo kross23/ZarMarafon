@@ -18,7 +18,7 @@ const handleChangePage = (page) => {
     case 'game':
     return <GamePage handleChangePage={handleChangePage}/>;
     default:
-      return <HomePage />;
+      return <HomePage handleChangePage={handleChangePage}/>;
   }
   
 }
