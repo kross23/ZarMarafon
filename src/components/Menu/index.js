@@ -3,10 +3,7 @@ import names_cn from 'classnames';
 
 const Menu = ({handleChangePage,navState}) => {
     const heandleMenu = (e) => {
-
       let target = e.target.textContent.toLowerCase();
-      console.log('target: ', target);
-      console.log(handleChangePage);
       handleChangePage && handleChangePage(target);
     } 
 

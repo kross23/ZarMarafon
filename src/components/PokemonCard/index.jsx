@@ -16,10 +16,10 @@ const PokemonCard = ({cardBackSide, type,name, id,img, top, right, bottom, left 
             <div className={names_cn(`${P.wrap}`, `${P.front}`)}> 
                 <div className={`${P.pokemon}`}> 
                     <div className={`${P.values}`}>
-                        <div className={`${P.count } ${P.top}`} > {top} </div>
-                        <div className={`${P.count} ${P.right}`}>{right}</div>
-                        <div className={`${P.count} ${P.bottom}`}>{bottom}</div>
-                        <div className={`${P.count} ${P.left}`}>{left}</div>
+                        <div className={names_cn(`${P.count }`,`${P.top}`)} > {top} </div>
+                        <div className={names_cn(`${P.count }`,`${P.right}`)}>{right}</div>
+                        <div className={names_cn(`${P.count }`,`${P.bottom}`)}>{bottom}</div>
+                        <div className={names_cn(`${P.count }`,`${P.left}`)}>{left}</div>
                     </div>
                     <div className={P.imgContainer}>
                         <img src={img} alt={name} />
@@ -34,7 +34,7 @@ const PokemonCard = ({cardBackSide, type,name, id,img, top, right, bottom, left 
         </div>
 
         <div className={P.cardBack}>
-            <div className={`${P.wrap} ${P.back}`}>
+            <div className={names_cn(`${P.wrap}`, `${P.back}`)}>
                 <img src={cardBackSide} alt="Сard Backed" />
             </div>
         </div>
