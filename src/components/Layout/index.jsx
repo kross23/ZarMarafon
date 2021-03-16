@@ -19,7 +19,7 @@ return(
             <div className={`${l.desc} ${l.full}`}>
               
                 {
-                   children.children 
+                   children.children
                 }
 
             </div>

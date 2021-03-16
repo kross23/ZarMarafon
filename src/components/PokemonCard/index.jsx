@@ -1,25 +1,22 @@
 import {useState} from 'react';
+import names_cn from 'classnames';
 import P from './index.module.css';
 const PokemonCard = ({cardBackSide, type,name, id,img, top, right, bottom, left }) => {
-    const [rotate, setrotate] = useState('');
+    const [rotate, setrotate] = useState(false);
 
     const heandlerCard = () => {
-        if(rotate === 'active'){
-            setrotate('');
-        }else{
-            setrotate('active');
-        }
-      }
-
+        setrotate(prev => !prev);
+    }
+//{**// <div className={`${P.wrap } ${P.front}`}> //*}
 
     return(
         <div className={P.root}>
-      <div className={`${P.pokemonCard}${rotate}`} onClick={heandlerCard}>
-        <div className={P.cardFront}>
-            <div className={P.wrap ,P.front}>
-                <div className={P.pokemon }> 
-                    <div className="P.values">
-                        <div className={`${P.count }${P.top}`}>{top}</div>
+      <div className={names_cn(P.pokemonCard,{[P.active]:rotate})} onClick={heandlerCard}>
+        <div className={`${P.cardFront}`} >
+            <div className={names_cn(`${P.wrap}`, `${P.front}`)}> 
+                <div className={`${P.pokemon}`}> 
+                    <div className={`${P.values}`}>
+                        <div className={`${P.count } ${P.top}`} > {top} </div>
                         <div className={`${P.count} ${P.right}`}>{right}</div>
                         <div className={`${P.count} ${P.bottom}`}>{bottom}</div>
                         <div className={`${P.count} ${P.left}`}>{left}</div>
