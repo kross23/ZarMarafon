@@ -1,19 +1,20 @@
-import {useState} from 'react';
+
 import names_cn from 'classnames';
 import P from './index.module.css';
-const PokemonCard = ({cardBackSide, type,name, id,img, top, right, bottom, left }) => {
-    const [rotate, setrotate] = useState(false);
+const PokemonCard = ({cardBackSide, type,name, id,img, top, right, bottom, left, active, changeCard }) => {
+    
 
-    const heandlerCard = () => {
-        setrotate(prev => !prev);
+    const heandlerCard = (e) => {
+        const iD = e.currentTarget.id;
+        changeCard && changeCard(iD);
     }
-//{**// <div className={`${P.wrap } ${P.front}`}> //*}
+
 
     return(
         <div className={P.root}>
-      <div className={names_cn(P.pokemonCard,{[P.active]:rotate})} onClick={heandlerCard}>
+      <div className={names_cn(P.pokemonCard,{[P.active]:active})} onClick={heandlerCard} id={id}>
         <div className={`${P.cardFront}`} >
-            <div className={names_cn(`${P.wrap}`, `${P.front}`)}> 
+            <div className={names_cn(`${P.wrap}`,`${P.front}`)}> 
                 <div className={`${P.pokemon}`}> 
                     <div className={`${P.values}`}>
                         <div className={names_cn(`${P.count }`,`${P.top}`)} > {top} </div>
@@ -34,7 +35,7 @@ const PokemonCard = ({cardBackSide, type,name, id,img, top, right, bottom, left 
         </div>
 
         <div className={P.cardBack}>
-            <div className={names_cn(`${P.wrap}`, `${P.back}`)}>
+            <div className={names_cn(`${P.wrap}`,`${P.back}`)}>
                 <img src={cardBackSide} alt="Сard Backed" />
             </div>
         </div>

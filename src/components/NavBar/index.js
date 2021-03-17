@@ -1,20 +1,22 @@
 import navStyle from './style.module.css';
 import names_cn from 'classnames';
-const NavBar = ({navState , navHeandle}) => {
+const NavBar = ({navState , navHeandle, bgActive}) => {
+  
   const heandleNav = () => {
-    console.log('heandleMenu');
     navHeandle && navHeandle();
 } 
   
-    return(
-<nav className={navStyle.root}>
+return(
+<nav  className={names_cn(navStyle.root, {
+  [navStyle.bgActive]:bgActive
+  })}>
   <div className={navStyle.navWrapper}>
     <p className={navStyle.brand}>
       LOGO
     </p>
-    <a className={names_cn(navStyle.menuButton,{[navStyle.active]:navState})} onClick={heandleNav}>
+    <div className={names_cn(navStyle.menuButton,{[navStyle.active]:navState})} onClick={heandleNav}>
       <span />
-    </a>
+    </div>
   </div>
 </nav>
     )
