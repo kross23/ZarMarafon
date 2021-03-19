@@ -3,12 +3,11 @@ import names_cn from 'classnames';
 import P from './index.module.css';
 const PokemonCard = ({cardBackSide, type,name, id,img, top, right, bottom, left, active, changeCard }) => {
     
-
     const heandlerCard = (e) => {
-        const iD = e.currentTarget.id;
+        let iD = e.currentTarget.id;
+        iD = Number(iD);
         changeCard && changeCard(iD);
     }
-
 
     return(
         <div className={P.root}>

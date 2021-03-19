@@ -7,7 +7,7 @@ const Layout = ({color, title, descr, bg, ...children}) => {
 
     const styles = {
         background: `url(${bg})`,
-        backgroundColor: `${color}`,
+        backgroundColor:`${color}`,
     };
  
 return(
@@ -16,15 +16,12 @@ return(
         <article >
             <div className={l.title} >
                 <h3>{title}</h3>
-                <span className={l.separator} ></span>
+                <span className={l.separator}></span>
             </div>
-            <div className={names_cn(`${l.desc} `,`${l.full}`)}>
-              
-                {
-                   children.children
-                }
-
-            </div>
+            {children.children? <div className={names_cn(`${l.desc}`,`${l.full}`)}>
+                {children.children}
+            </div>:'' }
+           
         </article>
     </div>
 </section>
