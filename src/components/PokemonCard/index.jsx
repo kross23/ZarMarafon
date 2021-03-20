@@ -5,13 +5,15 @@ const PokemonCard = ({cardBackSide, type,name, id,img, top, right, bottom, left,
     
     const heandlerCard = (e) => {
         let iD = e.currentTarget.id;
-        iD = Number(iD);
         changeCard && changeCard(iD);
     }
 
     return(
         <div className={P.root}>
-      <div className={names_cn(P.pokemonCard,{[P.active]:active})} onClick={heandlerCard} id={id}>
+      <div className={active? names_cn(P.pokemonCard,{[P.active]:active}):names_cn(`${P.pokemonCard}`,`${P.deactive}`)
+          
+    
+    } onClick={heandlerCard} id={id}>
         <div className={`${P.cardFront}`} >
             <div className={names_cn(`${P.wrap}`,`${P.front}`)}> 
                 <div className={`${P.pokemon}`}> 

@@ -1,15 +1,19 @@
 
 import { Redirect, Route, Switch,useLocation } from 'react-router-dom';
+
 import Footer from '../components/Footer';
 import GamePage from '../components/GamePage';
 import HomePage from '../components/Home';
 import MenuHeader from '../components/MenuHeader';
-import cn from 'classnames';
 
+import cn from 'classnames';
 import AboutPage from '../components/AboutPage';
 import ContactPage from '../components/ContactPage';
 import NotFound from '../components/NotFound';
 import app from './app.module.css';
+
+
+
 const App = () => {
 
   
