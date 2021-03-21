@@ -15,9 +15,6 @@ const load_in = async () => {   // просто загрузка данных и
     if (snapshot.exists()) {
       setsData(snapshot.val());
       console.log('успешно');
-
-
-
     }
     else {
       console.log("No data available");
@@ -32,8 +29,7 @@ const load_in = async () => {   // просто загрузка данных и
 
 const load_to = () => {     // добавляем в базу новую карту // если у нее поле актив активное
   for (const [key, value] of Object.entries(sData)) {
-    if(value.hasOwnProperty('active')!== null && value.active === true ){
-      console.log('fffff',value);
+    if(value.active === true ){  
       delete value.active;          // удаляем у карты поле актив чтобы грузилась репевернутая
       value.id = `f${(+new Date()).toString(16)}`;  // добавляем уникальный  id
       const newKey = dataBase.ref().child('pokemons').push().key;
@@ -47,41 +43,50 @@ const load_to = () => {     // добавляем в базу новую кар�
         // Data saved successfully!
         console.log('загружено');
       }
+    })
+    .then( () => {
+    setsData(prevState => {
+          return {newKey:value};          
+      }, {});
+    })
+    .then(()=>{
+      load_in();
     });
-    }
-  }
-  load_in();
+  };
 };
-
+};
 useEffect(() => {
   load_in();
 },[])
-
-
 const changeCard = (id) => { // по клику на карту добавляем поле актив и переворачиваем ее и сразу обновляем экземпляр в БД
-console.log('qqqqq',id);
-  setsData(prevState => {
-      return Object.entries(prevState).reduce((acc, item) => {
-          const pokemon = {...item[1]};
-          if (String(pokemon.id) === id) {
-            // setPokemons(prevState => prevState.map(item => item.id === id ? { ...item, active: !item.active } : item))
-            pokemon.active = !pokemon.active;
-            console.log('key',item[0]);
-            fire.database().ref('pokemons/'+ item[0]).set({
-              ...pokemon
-             }, (error) => {
-               if (error) {
-                 console.log('err=', error);
-               } else {
-                // Data saved successfully!
-                console.log('загружено');
-              }
-            });
-          };
-          acc[item[0]] = pokemon;
-          return acc;
-      }, {});
-  })
+  for (const [key, value] of Object.entries(sData)) {
+    const pokemon = {...value};
+    if (String(pokemon.id) === String(id)) {
+      pokemon.active = !pokemon.active;
+      fire.database().ref('pokemons/'+ key).set({
+        ...pokemon
+       },(error) => {
+         if (error) {
+           console.log('err=', error);
+         } else {
+          // Data saved successfully!
+          console.log('загружено');
+        }
+      }).then(() => {
+        setsData(prevState => {
+          return Object.entries(prevState).reduce((acc, item) => {
+              const pokemon = {...item[1]};
+              //console.log('переданый',id);
+              if (String(pokemon.id) === String(id)) {
+                pokemon.active = !pokemon.active;
+              };
+              acc[item[0]] = pokemon;
+              return acc;
+          }, {});
+      });
+      });
+    };
+  }
 };
 
 return(
