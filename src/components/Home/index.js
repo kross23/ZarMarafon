@@ -3,6 +3,7 @@ import bg3 from '../img/bg3.jpg';
 import Header from '../Header/index';
 import Layout from '../Layout/index';
 
+
 //urlBg
 const color = `#e2e2e2`;
 

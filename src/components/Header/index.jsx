@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom'; 
 import s from  './index.module.css';
+import but from './button.module.css';
 
 const Header =({descr, title}) => {
  
@@ -11,11 +12,13 @@ return(
     <div className={s.container}>
         <h1>{title}</h1>
         <p>{descr}</p>
-        <button >
+      
         <Link to='game'>
+        <button  className={but.button}>
         game
-        </Link>
         </button>
+        </Link>
+        
     </div>
 </header>
 )

@@ -7,24 +7,21 @@ const Layout = ({color, title, descr, bg, ...children}) => {
 
     const styles = {
         background: `url(${bg})`,
-        backgroundColor: `${color}`,
+        backgroundColor:`${color}`,
     };
  
 return(
     <section className={l.root} style={styles} >
     <div className={l.wrapper}>
         <article >
-            <div className={l.title}>
+            <div className={l.title} >
                 <h3>{title}</h3>
                 <span className={l.separator}></span>
             </div>
-            <div className={names_cn(`${l.desc} `,`${l.full}`)}>
-              
-                {
-                   children.children
-                }
-
-            </div>
+            {children.children? <div className={names_cn(`${l.desc}`,`${l.full}`)}>
+                {children.children}
+            </div>:'' }
+           
         </article>
     </div>
 </section>

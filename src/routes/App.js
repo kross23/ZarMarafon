@@ -24,7 +24,9 @@ const App = () => {
 
  return(
    <Switch>
-      <Route path='/404' component={NotFound}/>
+     
+      <Route path='/404' component={NotFound}>
+      </Route>
      <Route>
        <>
         <MenuHeader bgActive={!location}/>
@@ -36,7 +38,7 @@ const App = () => {
               <Route path="/game" component={GamePage}/>
               <Route path="/about" component={AboutPage} />
               <Route path="/contact" component={ContactPage} />
-             <Route  render={()=>(
+             <Route  render={ ()=>(
                <Redirect to="/404"/>
              )}/>
             </Switch>
