@@ -2,7 +2,7 @@
 import { Redirect, Route, Switch,useLocation } from 'react-router-dom';
 
 import Footer from '../components/Footer';
-import GamePage from '../components/GamePage';
+import GamePage from './Game/GamePage';
 import HomePage from '../components/Home';
 import MenuHeader from '../components/MenuHeader';
 
@@ -15,14 +15,14 @@ import app from './app.module.css';
 
 
 const App = () => {
-
-  
+  // let locat = useLocation();
+  // if(locat.pathname === "/" || locat.pathname === "/home"){
+  //   location = true;
+  // }else{
+  //   location = false;
+  // }
   let location = useLocation();
-  if(location.pathname === "/" || location.pathname === "/home"){
-    location = true;
-  }else{
-    location = false;
-  }
+  const isPading = location.pathname === '/' || location.pathname === '/game/board';
 
 
 
@@ -33,12 +33,13 @@ const App = () => {
       </Route>
      <Route>
        <>
-        <MenuHeader bgActive={!location}/>
-      <div className={cn(app.wrap,{[app.isHomePage]:location})}>
+        <MenuHeader bgActive={!isPading}/>
+      <div className={cn(app.wrap,{
+        [app.isHomePage]:isPading
+      })}>
             <Switch>
               <Route path="/" exact component={HomePage}/>
               <Route path="/home" exact component={HomePage}/>
-
               <Route path="/game" component={GamePage}/>
               <Route path="/about" component={AboutPage} />
               <Route path="/contact" component={ContactPage} />
