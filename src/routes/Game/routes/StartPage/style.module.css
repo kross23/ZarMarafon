@@ -1,0 +1,57 @@
+.flex {
+   display: grid;
+   grid-template-columns: auto auto auto;
+   grid-gap:40px ;
+  }
+  .button,
+.button:visited {
+    background: #f300b4;
+    border: 1px solid transparent;
+    color: #fafafa;
+    font-weight: bold;
+    outline: none;
+    margin-left: 100px;
+
+}
+
+.button:hover {
+    background: transparent;
+    border: 1px solid #f300b4;
+    color: #e6dee4;
+    transition: all ease-in-out 0s;
+    outline: none;
+}
+
+.button:active {
+    background: transparent;
+    border: 1px solid #f300b4;
+    color: #faf6f6;
+    transition: all ease-in-out 0s;
+    outline: none;
+    padding: 1.05rem 1rem calc(.95rem - 1px) calc(1rem - 1px);
+    border-top: 2px solid;
+    border-right: 2px solid;
+}
+
+.button:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+.button:disabled:hover {
+    background: #f300b4;
+    border: 1px solid transparent;
+    color: #fafafa;
+}
+.blok_buttons{
+  display: flex;
+  justify-content: center;
+}
+.pokemonCard.selected {
+    margin-top: -40px;
+}
+.card{
+    width: 100%;
+    height: 380px;
+    cursor: pointer;
+}
