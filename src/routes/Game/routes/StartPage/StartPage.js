@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import PokemonCard from '../../../../components/PokemonCard/index';
 import Firebase from '../../../../service/firebase';
 import game from './style.module.css';
-
+import b from './button.module.css'
 
 
 const StartPage = () => {
@@ -43,14 +43,17 @@ useEffect(() => {
 return(
         <>
         <div>GamePage</div>
+
+        
        <div className="blok_buttons">
        <Link to='home'>
         Go to Home
         </Link>
-        <button className={game.button} >
-        добавить каточку активную карту
+
+        <button className={b.button} >
+        добавить каточку карту
         </button >
-        <button  className={game.button} onClick={handleStart}
+        <button  className={b.button} onClick={handleStart}
         disabled={Object.keys(context.pokemon).length < 5}>
         Go to board start game
         </button>

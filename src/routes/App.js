@@ -15,14 +15,16 @@ import app from './app.module.css';
 
 
 const App = () => {
-  // let locat = useLocation();
-  // if(locat.pathname === "/" || locat.pathname === "/home"){
-  //   location = true;
-  // }else{
-  //   location = false;
-  // }
-  let location = useLocation();
-  const isPading = location.pathname === '/' || location.pathname === '/game/board';
+  const location = useLocation();
+let loc;
+  if(location.pathname === "/" || location.pathname === "/home"||
+  location.pathname === '/game/board'|| location.pathname === '/'){
+    loc = true;
+  }else{
+    loc = false;
+  }
+  // let location = useLocation();
+  // const isPading = location.pathname === '/' || location.pathname === '/game/board';
 
 
 
@@ -33,9 +35,9 @@ const App = () => {
       </Route>
      <Route>
        <>
-        <MenuHeader bgActive={!isPading}/>
+        <MenuHeader bgActive={!loc}/>
       <div className={cn(app.wrap,{
-        [app.isHomePage]:isPading
+        [app.isHomePage]:loc
       })}>
             <Switch>
               <Route path="/" exact component={HomePage}/>

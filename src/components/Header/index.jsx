@@ -1,9 +1,13 @@
-import {Link} from 'react-router-dom'; 
+import {Link,useHistory} from 'react-router-dom'; 
 import s from  './index.module.css';
 import but from './button.module.css';
 
 const Header =({descr, title}) => {
- 
+    const history = useHistory();
+    const hanGStart = () => {
+        history.push('/game')
+        
+        }
 return(
     <header className={s.root}>
     <div className={s.forest}></div>
@@ -13,11 +17,11 @@ return(
         <h1>{title}</h1>
         <p>{descr}</p>
       
-        <Link to='game'>
-        <button  className={but.button}>
+        
+        <button  className={but.button} onClick={hanGStart}>
         game
         </button>
-        </Link>
+        
         
     </div>
 </header>

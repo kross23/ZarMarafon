@@ -1,3 +1,9 @@
+// const {pokemon}  = useContext(PokemonContext);
+const {pokemon} = context.pokemon;
+
+console.log('board',board);
+context.handlSelect(board);
+
 setsData(prevState => {
     return Object.entries(prevState).reduce((acc, item) => {
         const pokemon = {...item[1]};

@@ -11,9 +11,7 @@
     transition: all ease-in-out .25s;
     cursor: pointer;
     box-sizing: border-box;
-    border-radius: 10px;
-    margin-left: 50px;
-    
+    border-radius: 10px
 }
 
 .button,
