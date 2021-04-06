@@ -1,7 +1,8 @@
 .flex {
    display: grid;
-   grid-template-columns: auto auto auto;
+   grid-template-columns: auto auto auto auto auto;
    grid-gap:40px ;
+   margin-top: 100px;
   }
   .button,
 .button:visited {
@@ -46,12 +47,15 @@
 .blok_buttons{
   display: flex;
   justify-content: center;
+  margin-bottom: 80px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .pokemonCard.selected {
     margin-top: -40px;
 }
 .card{
-    width: 100%;
+    width: 90%;
     height: 380px;
     cursor: pointer;
 }

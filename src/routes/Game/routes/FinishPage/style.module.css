@@ -5,14 +5,22 @@
   }
   .button,
 .button:visited {
-    background: #f300b4;
-    border: 1px solid transparent;
+    width: 100%;
+    max-width: 240px;
+    padding: 1rem;
+    border: 1px solid #fafafa;
     color: #fafafa;
-    font-weight: bold;
-    outline: none;
-    margin-left: auto;
-    margin-right: auto;
-
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1rem;
+    transition: all ease-in-out .25s;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
 }
 
 .button:hover {
@@ -55,4 +63,11 @@
     width: 150px;
     height: 250px;
     cursor: pointer;
+}
+span{
+    margin-top: 10px;
+    font-size: 28px;
+    font-weight: 350;
+    font-style: normal;
+    font-variant: normal;
 }

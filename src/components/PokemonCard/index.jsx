@@ -1,17 +1,19 @@
 
 import names_cn from 'classnames';
 import P from './index.module.css';
-const PokemonCard = ({type,name,id,img,values, active, changeCard, minimize, className,isSelected,possession }) => {
+const PokemonCard = ({type,name,id,img,values, active, changeCard, minimize, className,isSelected,possession,finishClick,actives,key }) => {
+    
    
     const heandlerCard = (e) => {
-            e.preventDefault()
+          
         let iD = e.currentTarget.id;
-        changeCard && changeCard(iD);
+        changeCard && changeCard(key);
+        finishClick && finishClick(iD);
     }
 //isSelected
     return(   
-<div className={names_cn(className, P.pokemonCard,{[P.active]:active,[P.selected]:isSelected})}
-        onClick={heandlerCard} id={id}>
+<div className={names_cn(className, P.pokemonCard,{[P.active]:active,[P.selected]:isSelected,[P.actives]:actives})}
+        onClick={heandlerCard } id={id}>
         <div className={`${P.cardFront}`} >
             <div className={names_cn(`${P.wrap}`,`${P.front}`)}> 
                 <div className={names_cn(P.pokemon,P[type],P[possession] )}  > 

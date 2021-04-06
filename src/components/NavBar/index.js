@@ -1,6 +1,7 @@
 import navStyle from './style.module.css';
 import names_cn from 'classnames';
-const NavBar = ({navState , navHeandle, bgActive}) => {
+import { ReactComponent as Login} from "../img/Login.svg";
+const NavBar = ({navState , navHeandle, bgActive,onClickLogin}) => {
   
   const heandleNav = () => {
     navHeandle && navHeandle();
@@ -14,9 +15,19 @@ return(
     <p className={navStyle.brand}>
       LOGO
     </p>
-    <div className={names_cn(navStyle.menuButton,{[navStyle.active]:navState})} onClick={heandleNav}>
+    <div className={navStyle.loginAndMenu}>
+      <div className={navStyle.loginWrap}
+      onClick={onClickLogin}
+      >
+        <Login/>
+      </div>
+      <div>
+<div className={names_cn(navStyle.menuButton,{[navStyle.active]:navState})} onClick={heandleNav}>
       <span />
     </div>
+      </div>
+    </div>
+
   </div>
 </nav>
     )

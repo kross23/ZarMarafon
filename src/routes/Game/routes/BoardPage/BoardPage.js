@@ -66,21 +66,17 @@ plaer2Recvest.data.map(item => (
 }, [])
 
 const HandleClikBoard = async (position) => {
- if (chouseCard.player !== toglpayer){  /// по этому условию игроки могут ходить только по очереди
-    settoglpayer(chouseCard.player)
- }else{
-return;
- }
-  
-  
+    if (chouseCard.player !== toglpayer){  /// по этому условию игроки могут ходить только по очереди
+        settoglpayer(chouseCard.player);
+    }else{
+    return;
+    } 
 if(chouseCard ){
     const params = {
         position,
         card:chouseCard,
         board
     };
-    
-    
     const res = await fetch('https://reactmarathon-api.netlify.app/api/players-turn', {
         method: 'POST',
         headers: {
@@ -88,10 +84,7 @@ if(chouseCard ){
         },
         body: JSON.stringify(params),
     });
-    
     const request = await res.json();
-    
-    
     if(chouseCard.player === 1){
         setplaer1(prev => prev.filter(item => item.id !== chouseCard.id))
     }
@@ -103,33 +96,24 @@ if(chouseCard ){
         const count = prev + 1;
         return count;
     })
-
-    }
+}
 }
 
 useEffect(() => {
     if(stepS === 9){
     const  [count1, count2] = counterWinv(board, player1, player2);
         if (count1 > count2){
-            getWin('player1 win');
+            getWin('игрок-1');
            
         }else if (count1 < count2){
-            getWin('player2 win');
+            getWin('игрок-2');
         }else{
-            getWin('draw');
+            getWin('ничья');
         }
-      
-
-        console.log('fgfg',player2);
-        //pokemonTo(player2);
         history.replace('/game/finish');
     }
 
 },[stepS]);
-
-
-
-
 
     if (Object.keys(pokemon).length === 0 ){
         history.replace('/game');
@@ -139,16 +123,14 @@ useEffect(() => {
     return (
         <div className={s.root}>
 	<div className={s.playerOne} >
-        <PlayerBoard player={1}
-         cards={player1}  onClickCard={(card)=> setchouseCard(card)}/>
-                            </div>
-            <div className={s.board}>
-                {
-                 board.map((item) => (
-                         <div className={s.boardPlate}
-                       key ={item.position } 
-                        onClick={() => !item.card && HandleClikBoard(item.position)}
-                                                    >
+        <PlayerBoard 
+                    player={1} cards={player1}  onClickCard={(card)=> setchouseCard(card)}  />
+         </div>
+        <div className={s.board}>
+        {
+         board.map((item) => (
+         <div className={s.boardPlate}
+            key ={item.position } onClick={() => !item.card && HandleClikBoard(item.position)}>
                 {
                 item.card && <PokemonCard {...item.card} active minimize/>
                 }
@@ -156,7 +138,7 @@ useEffect(() => {
                 }
             </div>
             <div className={s.playerTwo}>
-           <PlayerBoard player={2} cards={player2}  onClickCard ={(card)=> setchouseCard(card)}/>
+           <PlayerBoard player={2} cards={player2}  onClickCard ={(card)=> setchouseCard(card)}  />
             </div>
         </div>
     );

@@ -11,6 +11,9 @@ import AboutPage from '../components/AboutPage';
 import ContactPage from '../components/ContactPage';
 import NotFound from '../components/NotFound';
 import app from './app.module.css';
+import {NotificationContainer} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+import PrivataRoute from '../components/PrivateRoute';
 
 
 
@@ -23,12 +26,12 @@ let loc;
   }else{
     loc = false;
   }
-  // let location = useLocation();
-  // const isPading = location.pathname === '/' || location.pathname === '/game/board';
+
 
 
 
  return(
+  <>
    <Switch>
      
       <Route path='/404' component={NotFound}>
@@ -42,8 +45,8 @@ let loc;
             <Switch>
               <Route path="/" exact component={HomePage}/>
               <Route path="/home" exact component={HomePage}/>
-              <Route path="/game" component={GamePage}/>
-              <Route path="/about" component={AboutPage} />
+              <PrivataRoute path="/game" component={GamePage}/>
+              <PrivataRoute path="/about" component={AboutPage} />
               <Route path="/contact" component={ContactPage} />
              <Route  render={ ()=>(
                <Redirect to="/404"/>
@@ -54,7 +57,9 @@ let loc;
       </>
      </Route>
    </Switch>
-   
- )
+   <NotificationContainer />
+  
+   </> 
+   )
 }
 export default App;

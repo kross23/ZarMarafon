@@ -33,7 +33,7 @@ class Firebase {
   }
   addPokemon = (pokemon, kollback) => {
     const newKey = this.dataBase.ref().child('pokemons').push().key;
-   this.fire.database().ref('pokemons/'+ newKey).set(pokemon).then(()=> kollback());
+   this.fire.database().ref('pokemons/'+ newKey).set(pokemon).then(()=> kollback(pokemon));
 
 }
 ofPokemonSoket = () => {

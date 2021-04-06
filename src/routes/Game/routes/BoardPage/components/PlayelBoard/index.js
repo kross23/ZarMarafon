@@ -4,25 +4,22 @@ import PokemonCard from '../../../../../../components/PokemonCard/index';
 
 import s from './payer.module.css';
 const PlayerBoard = ({cards,onClickCard, player}) => {
-const [isSelected, setisSelected] = useState(null);
-const [sPlayer, setPlayer] = useState(null);
-     
+const [isSelected, setisSelected] = useState(null); 
             return(
-
                 <>
                 {//
                 cards.map((item) => (
-                    <div className={ cN(s.cardboard,{[s.selected]: isSelected === item.id })} onClick ={()=> {
-                     
-
+                    <div className={ cN(s.cardboard,{[s.selected]: isSelected === item.id })} 
+                    onClick ={()=> {
                         setisSelected(item.id);
-                       
-                        onClickCard&&onClickCard({
-                            player,
-                            ...item,
-                        });
-                        }} >
-                    <PokemonCard
+                          onClickCard && onClickCard({
+                                    player,
+                                    ...item,});
+                        }} 
+                        key={item.id}>
+
+
+                <PokemonCard
                     isSelected ={item.selected}
                     //className={s.card}         
                     type={item.type}
@@ -33,7 +30,6 @@ const [sPlayer, setPlayer] = useState(null);
                     id={item.id} 
                     values={item.values}
                     minimize
-        
                     active={true}
                     key={item.id}
                     
