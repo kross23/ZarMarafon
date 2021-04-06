@@ -1,4 +1,9 @@
-.button,
+.flex {
+   display: grid;
+   grid-template-columns: auto auto auto auto auto;
+   grid-gap:10px ;
+  }
+  .button,
 .button:visited {
     width: 100%;
     max-width: 240px;
@@ -16,15 +21,6 @@
     margin-top: 50px;
     margin-bottom: 50px;
     
-}
-
-.button,
-.button:visited {
-    background: #f300b4;
-    border: 1px solid transparent;
-    color: #fafafa;
-    font-weight: bold;
-    outline: none;
 }
 
 .button:hover {
@@ -55,4 +51,23 @@
     background: #f300b4;
     border: 1px solid transparent;
     color: #fafafa;
+}
+.blok_buttons{
+  display: flex;
+  justify-content: center;
+}
+.pokemonCard.selected {
+    margin-top: -40px;
+}
+.card{
+    width: 150px;
+    height: 250px;
+    cursor: pointer;
+}
+span{
+    margin-top: 10px;
+    font-size: 28px;
+    font-weight: 350;
+    font-style: normal;
+    font-variant: normal;
 }

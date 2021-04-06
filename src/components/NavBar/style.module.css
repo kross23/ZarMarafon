@@ -89,3 +89,24 @@
     text-align: start;
     
   }
+
+  .loginWrap{
+    height: 22px;
+    width: 22px;
+    margin-right: 12px;
+  }
+  .loginAndMenu{
+    display: flex;
+  }
+  .loginWrap svg{
+    height: 100%;
+    width: 100%;
+  } 
+  .loginWrap svg g{
+   fill: #fafafa;
+   transition: fill ease-in-out .25s;
+  } 
+
+  .loginWrap:hover svg g{
+    fill: mediumvioletred;
+  } 
